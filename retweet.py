@@ -19,6 +19,7 @@ def get_next_tweet():
     tweet_id = random.choice([i['tweet_id'] for i in all_tweets if not i['published']])
     return tweet_id
 
+
 def retweet(tweet_id):
     """ retweet the tweet_id """
 
@@ -44,6 +45,7 @@ def retweet(tweet_id):
 
 
 def mark_as_retweeted(tweet_id, retweeted):
+    """ updates the tweet's published field """
     # now set its published date and update the database
     try:
         all_tweets = json.loads(rs.get('tweets'))
