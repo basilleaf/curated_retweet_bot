@@ -12,7 +12,7 @@ rs = redis.Redis("localhost")
 @app.route('/queue/<tweet_id>')
 @requires_auth
 def queue_tweet(tweet_id):
-    """ take tweet_id in url and save to redis queue """
+    """ endpoint takes tweet_id in url and save to redis queue """
 
     try:
         all_tweets = json.loads(rs.get('tweets'))
