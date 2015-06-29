@@ -4,7 +4,7 @@ This is a Flask app and browser extension combo that provides a way to browse tw
 
 It has 2 parts: 
 
-	- a chrome extension that adds a button to twitter's image gallery overlay in an image search results page 
+	- todo: a chrome extension that adds a button to twitter's image gallery overlay in an image search results page 
 
 	- a Flask app that does 2 things:
 
