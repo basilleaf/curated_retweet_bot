@@ -1,1 +1,0 @@
-queue_max_rows = 3000  # this won't scale to large but doesn't need to
