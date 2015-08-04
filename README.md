@@ -1,3 +1,3 @@
-a bot that retweets my favorites, to be run on cron 
+a bot that retweets my favorites, to be run on cron job
 
-for @hellohiking
+in use for <a href = "https://twitter.com/hellohiking">hellohiking</a>
