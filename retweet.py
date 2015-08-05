@@ -66,7 +66,7 @@ if __name__ == '__main__':
     or even at the same time every day
     so sleep for a random number of seconds between zero and 1 hour 
     """
-    sleep_time = randint(0,3600)
+    sleep_time = randint(0,1800)
     print "sleeping for %s" % sleep_time
     sleep(sleep_time)
 
