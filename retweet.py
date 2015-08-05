@@ -12,8 +12,7 @@ api = tweepy.API(auth)
 
 
 def get_previously_tweeted():
-
-    # get previously tweeted
+    """ gets list of previously tweeted from file """
     with open(tweeted_file) as f:
         tweeted = f.read().splitlines()
 
@@ -23,8 +22,7 @@ def get_previously_tweeted():
 def get_next_tweet(page=None):
     """ get next tweet in queue, returns twitter tweet id """
         
-    if not page:
-        page = 1
+    if not page: page = 1
 
     tweeted = get_previously_tweeted()
 
@@ -46,7 +44,6 @@ def retweet(tweet_id):
 
     tweet_id = int(tweet_id)
 
-    retweeted = True
     try:
         api.retweet(id=tweet_id)
         mark_as_retweeted(tweet_id)
@@ -59,6 +56,7 @@ def retweet(tweet_id):
 
 def mark_as_retweeted(tweet_id):
     """ writes the tweet id to the file """
+    
     print 'wriing to file'
     with open (tweeted_file, 'a') as f: 
         f.write ("%i\n" % tweet_id)
