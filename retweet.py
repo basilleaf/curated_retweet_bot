@@ -57,6 +57,13 @@ def mark_as_retweeted(tweet_id):
         f.write ("%i\n" % tweet_id)
 
 
+def trim_log():
+    max_lines = 5000
+    tweeted = get_previously_tweeted()
+    if len(tweeted) > max_lines:
+        import os
+        os.system("tail -%s tweeted.txt > temp.txt; mv temp.txt tweeted.txt" % str(max_lines))
+
 
 if __name__ == '__main__':
     """
@@ -76,3 +83,9 @@ if __name__ == '__main__':
     tweet_id = get_next_tweet()
     retweet(tweet_id)
 
+    trim_log()
+
+else:
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
