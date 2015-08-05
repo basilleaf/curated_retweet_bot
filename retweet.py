@@ -70,7 +70,6 @@ if __name__ == '__main__':
     print "sleeping for %s" % sleep_time
     sleep(sleep_time)
 
-
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
