@@ -64,10 +64,12 @@ def mark_as_retweeted(tweet_id):
 
 
 if __name__ == '__main__':
-    # this will be on something like hourly cron, 
-    # but we don't want to really tweet on the hour 
-    # or even at the same time every day
-    # so sleep for a random number of seconds between zero and 1 hour 
+    """
+    this will be on something like hourly cron, 
+    but we don't want to really tweet on the hour 
+    or even at the same time every day
+    so sleep for a random number of seconds between zero and 1 hour 
+    """
     sleep_time = randint(0,3600)
     print "sleeping for %s" % sleep_time
     sleep(sleep_time)
