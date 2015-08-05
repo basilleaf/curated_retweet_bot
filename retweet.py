@@ -42,7 +42,6 @@ def retweet(tweet_id):
 
     try:
         api.retweet(id=tweet_id)
-        mark_as_retweeted(tweet_id)
         print "ok %s" % tweet_id
     except tweepy.error.TweepError:
         print tweepy.error.TweepError.__str__
