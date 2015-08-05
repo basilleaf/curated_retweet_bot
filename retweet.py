@@ -6,10 +6,6 @@ from secrets import consumer_key, consumer_secret, access_token, access_token_se
 base_path = '/users/lballard/projects/hellohiking/'
 tweeted_file = base_path + 'tweeted.txt'
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-api = tweepy.API(auth)
-
 
 def get_previously_tweeted():
     """ gets list of previously tweeted from file """
@@ -73,6 +69,12 @@ if __name__ == '__main__':
     sleep_time = randint(0,3600)
     print "sleeping for %s" % sleep_time
     sleep(sleep_time)
+
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+    
     tweet_id = get_next_tweet()
     retweet(tweet_id)
 
