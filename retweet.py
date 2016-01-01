@@ -1,3 +1,4 @@
+import sys
 import tweepy
 from random import randint
 from time import sleep
@@ -72,9 +73,11 @@ if __name__ == '__main__':
     or even at the same time every day
     so sleep for a random number of seconds between zero and 1 hour 
     """
-    sleep_time = randint(0,1800)
-    print "sleeping for %s" % sleep_time
-    sleep(sleep_time)
+
+    if len(sys.argv) == 1:
+        sleep_time = randint(0,1800)
+        print "sleeping for %s" % sleep_time
+        sleep(sleep_time)
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
