@@ -68,12 +68,14 @@ def trim_log():
 
 if __name__ == '__main__':
     """
-    this will be on something like hourly cron, 
-    but we don't want to really tweet on the hour 
-    or even at the same time every day
-    so sleep for a random number of seconds between zero and 1 hour 
+    sleep for random seconds, retweet one tweet, don't repeat, 
+    pass any shell arg to skip the sleep
     """
 
+    # this will be on something like hourly cron, 
+    # but we don't want to really tweet on the hour 
+    # or even at the same time every day
+    # so sleep for a random number of seconds between zero and 1 hour 
     if len(sys.argv) == 1:
         sleep_time = randint(0,1800)
         print "sleeping for %s" % sleep_time
