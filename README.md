@@ -1,4 +1,4 @@
-A python script that will retweet something you have recently favorited.
+A python script that will retweet something you have recently favorited. In use with <a href = "https://twitter.com/hellohiking">@hellohiking</a>
 
 # Install
 
@@ -29,5 +29,3 @@ To retweet regularly on a schedule you can use a [cron job](http://www.thegeekst
 Example crontab for retweeting once every 2 hours:
 
     0	*/2	*	*	*	<FULL PATH TO RETWEET BOT>/venv/bin/python <FULL PATH TO RETWEET BOT>retweet.py
-
-Demo: <a href = "https://twitter.com/hellohiking">@hellohiking</a>
