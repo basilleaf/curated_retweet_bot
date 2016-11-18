@@ -22,7 +22,7 @@ A python script that will retweet something you have recently favorited. In use 
 
 ## Usage
 
-Visit Twitter and favorite things! Be logged in as the user who will be doing the retweeting and favoriting. Then run this script to retweet one recent fav:
+Visit Twitter and favorite things! Be logged in as the user who will be doing the retweeting and favoriting. Then run the script to retweet one recent fav:
 
 	python retweet.py
 
