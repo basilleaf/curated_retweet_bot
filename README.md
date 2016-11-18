@@ -17,7 +17,7 @@ A python script that will retweet something you have recently favorited. In use 
 
 • [authorize your app with twitter](https://apps.twitter.com/)
 
-• copy the file secrets_template.py to secrets.py and fill out your [twitter credentials](url)
+• copy the file secrets_template.py to secrets.py and fill out your twitter credentials
 
 
 ## Usage
