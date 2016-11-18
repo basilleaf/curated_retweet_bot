@@ -1,8 +1,10 @@
+# Fav Retweet Bot
+
 A python script that will retweet something you have recently favorited. In use with <a href = "https://twitter.com/hellohiking">@hellohiking</a>
 
-# Install
+## Install
 
-## Install the script in a virtualenv
+### Install the script in a virtualenv
 
 
 	  git clone https://github.com/basilleaf/fav_retweet_bot.git
@@ -11,14 +13,14 @@ A python script that will retweet something you have recently favorited. In use 
 	  source venv/bin/activate
 	  pip install -r requirements.txt
 
-## Setup your twitter creds
+### Setup your twitter creds
 
 	• [authorize your app with twitter](https://apps.twitter.com/)
 
 	• copy the file secrets_template.py to secrets.py and fill out your [twitter credentials](url)
 
 
-# Usage
+## Usage
 
 Visit Twitter and favorite things! Be logged in as the user who will be doing the retweeting and favoriting. Then run this script to retweet one recent fav:
 
