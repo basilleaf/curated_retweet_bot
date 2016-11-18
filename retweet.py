@@ -3,10 +3,17 @@ import tweepy
 from random import randint
 from time import sleep
 from secrets import consumer_key, consumer_secret, access_token, access_token_secret
+"""
 
+    Retweet one recently favorited tweet by the logged in user, defined in secrets.py
+    Keeps track of previously retweeted tweets by keeping a lof file on disc defined in tweeted_file
+    keeps the tweeted_file trimmed to max_lines
+    Delays for random seconds before issuing the tweet, to avoid tweeting on the dot hour every time like some robot
+    pass any shell argument to skip the delay and tweet immediately 
+
+"""
 base_path = '/users/lballard/projects/hellohiking/'
 tweeted_file = base_path + 'tweeted.txt'
-
 
 def get_previously_tweeted():
     """ gets list of previously tweeted from file """
@@ -18,7 +25,7 @@ def get_previously_tweeted():
 
 def get_next_tweet(page=None):
     """ get next tweet in queue, returns twitter tweet id """
-        
+
     if not page: page = 1
 
     tweeted = get_previously_tweeted()
@@ -46,15 +53,15 @@ def retweet(tweet_id):
         print "ok %s" % tweet_id
     except tweepy.error.TweepError:
         print tweepy.error.TweepError.__str__
-            
+
     mark_as_retweeted(tweet_id)  # mark as retweeted either way
 
 
 def mark_as_retweeted(tweet_id):
     """ writes the tweet id to the file """
-    
+
     print 'wriing to file'
-    with open (tweeted_file, 'a') as f: 
+    with open (tweeted_file, 'a') as f:
         f.write ("%i\n" % tweet_id)
 
 
@@ -68,14 +75,14 @@ def trim_log():
 
 if __name__ == '__main__':
     """
-    sleep for random seconds, retweet one tweet, don't repeat, 
+    sleep for random seconds, retweet one tweet, don't repeat,
     pass any shell arg to skip the sleep
     """
 
-    # this will be on something like hourly cron, 
-    # but we don't want to really tweet on the hour 
+    # this will be on something like hourly cron,
+    # but we don't want to really tweet on the hour
     # or even at the same time every day
-    # so sleep for a random number of seconds between zero and 1 hour 
+    # so sleep for a random number of seconds between zero and 1 hour
     if len(sys.argv) == 1:
         sleep_time = randint(0,1800)
         print "sleeping for %s" % sleep_time
@@ -84,7 +91,7 @@ if __name__ == '__main__':
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
-    
+
     tweet_id = get_next_tweet()
     retweet(tweet_id)
 
