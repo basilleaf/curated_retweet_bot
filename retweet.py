@@ -9,7 +9,7 @@ from secrets import consumer_key, consumer_secret, access_token, access_token_se
     Keeps track of previously retweeted tweets by keeping a lof file on disc defined in tweeted_file
     keeps the tweeted_file trimmed to max_lines
     Delays for random seconds before issuing the tweet, to avoid tweeting on the dot hour every time like some robot
-    pass any shell argument to skip the delay and tweet immediately 
+    pass any shell argument to skip the delay and tweet immediately
 
 """
 base_path = '/users/lballard/projects/hellohiking/'
@@ -72,6 +72,14 @@ def trim_log():
         import os
         os.system("tail -%s tweeted.txt > temp.txt; mv temp.txt tweeted.txt" % str(max_lines))
 
+def follow_backs(api):
+    for follower in tweepy.Cursor(api.followers).items():
+        try:
+            follower.follow()
+            print 'followed: ' + follower.screen_name
+        except tweepy.error.TweepError:
+            pass
+
 
 if __name__ == '__main__':
     """
@@ -96,6 +104,8 @@ if __name__ == '__main__':
     retweet(tweet_id)
 
     trim_log()
+
+    follow_backs(api)
 
 else:
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
