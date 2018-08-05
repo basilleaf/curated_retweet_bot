@@ -3,6 +3,7 @@ import tweepy
 from random import randint
 from time import sleep
 from secrets import consumer_key, consumer_secret, access_token, access_token_secret
+from config import base_path
 """
 
     Retweet one recently favorited tweet by the logged in user, defined in secrets.py
@@ -12,7 +13,6 @@ from secrets import consumer_key, consumer_secret, access_token, access_token_se
     pass any shell argument to skip the delay and tweet immediately
 
 """
-base_path = '/users/lballard/projects/hellohiking/'
 tweeted_file = base_path + 'tweeted.txt'
 
 def get_previously_tweeted():

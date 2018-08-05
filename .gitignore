@@ -2,3 +2,4 @@ venv
 secrets.py
 *.pyc
 tweeted.txt
+config.py
